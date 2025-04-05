@@ -1,0 +1,252 @@
+
+**** 06/02/24 12:25:20 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-dcsweephum"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-pspicefil
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "dcsweephum.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of D:\FACULTA\ANU II\Sem 2\CAD\cdssetup\OrCAD_PSpice\23.1.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.DC LIN PARAM r 120K 380K 1K 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source FINAL_VERSION
+V_V1         VCC 0 10V
+R_R4         VOUT1 N00531 R_R4 1k TC=0,0 
+.model        R_R4 RES R=1 DEV=1% TC1=0 TC2=0
+X_U2         N00621 N00531 VCC 0 VOUT2 AD8614/AD
+R_R6         N07424 N00621 R_R6 0.75k TC=0,0 
+.model        R_R6 RES R=1 DEV=1% TC1=0 TC2=0
+X_U1         N05879 N05749 VCC 0 VOUT1 AD8614/AD
+R_Rsensor         N05749 VOUT1  {r} TC=0,0 
+R_R1         VCC N05749 R_R1 730k TC=0,0 
+.model        R_R1 RES R=1 DEV=1% TC1=0 TC2=0
+R_R2         VCC N05879 R_R2 730k TC=0,0 
+.model        R_R2 RES R=1 DEV=1% TC1=0 TC2=0
+R_R3         0 N05879 R_R3 730k TC=0,0 
+.model        R_R3 RES R=1 DEV=1% TC1=0 TC2=0
+R_R5         VOUT2 N00531 R_R5 3.3k TC=0,0 
+.model        R_R5 RES R=1 DEV=1% TC1=0 TC2=0
+R_R7         N07424 VCC R_R7 6.34k TC=0,0 
+.model        R_R7 RES R=1 DEV=1% TC1=0 TC2=0
+R_Rref         0 N07424 R_Rref 3.65k TC=0,0 
+.model        R_Rref RES R=1 DEV=1% TC1=0 TC2=0
+R_R8         VOUT2 N09831  1.5k TC=0,0 
+R_R9         N09831 VOUT3  10k TC=0,0 
+X_U3         N09831 N09890 VCC 0 VOUT3 AD8614/AD
+D_D1         N13621 0 LO_3336-TYP 
+R_Rled         N13621 VOUT3  400 TC=0,0 
+R_R10         VCC N09890  6k TC=0,0 
+R_Rref2         N09890 0  4k TC=0,0 
+R_R11         0 N14030  400 TC=0,0 
+Q_Q1         VCC VOUT3 N14030 Q2N2222A/ZTX 
+.PARAM  x=0 sensor={-260k*abs(x)+380k} r=380k humidity={(380k-r)*45/260k+5}
+
+**** RESUMING dcsweephum.cir ****
+.END
+
+**** 06/02/24 12:25:20 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-dcsweephum"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-pspicefil
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               LO_3336-TYP     X_U2.DX         X_U1.DX         X_U3.DX         
+          IS  980.130000E-24  100.000000E-18  100.000000E-18  100.000000E-18 
+           N    1.6749                                                       
+         IKF    7.140200E-03                                                 
+          RS    1.6217          5               5               5            
+
+
+**** 06/02/24 12:25:20 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-dcsweephum"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-pspicefil
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               Q2N2222A/ZTX    X_U2.NIX        X_U2.PIX        X_U2.POUT       
+               NPN             NPN             PNP             PNP             
+       LEVEL    1               1               1               1            
+          IS   30.611000E-15  100.000000E-18  100.000000E-18  100.000000E-18 
+          BF  220             220             220             100            
+          NF    1.00124         1               1               1            
+         VAF  104             130             130             200            
+         IKF     .52                                                         
+         ISE    7.500000E-15                                                 
+          NE    1.41                                                         
+          BR    4               1               1               1            
+          NR    1.005           1               1               1            
+         VAR   28                                                            
+         IKR     .24                                                         
+         ISC   10.652500E-12                                                 
+          NC    1.3728                                                       
+         ISS    0               0               0               0            
+          RB     .13                                                         
+          RE     .22            0               0               0            
+          RC     .12            0               0               4            
+         CJE   27.010000E-12    0               0               0            
+         VJE     .75             .75             .75             .75         
+         CJC    9.120000E-12    0               0               0            
+         VJC     .4089           .75             .75             .75         
+         MJC     .3508           .33             .33             .33         
+        XCJC    1               1               1               1            
+         CJS    0               0               0               0            
+         VJS     .75             .75             .75             .75         
+          TF  325.000000E-12                                                 
+          TR  100.000000E-09                                                 
+          KF    0              25.000000E-15   25.000000E-15    0            
+          AF    1               1               1               1            
+          CN    2.42            2.42            2.2             2.2          
+           D     .87             .87             .52             .52         
+
+
+               X_U2.NOUT       X_U1.NIX        X_U1.PIX        X_U1.POUT       
+               NPN             NPN             PNP             PNP             
+       LEVEL    1               1               1               1            
+          IS  100.000000E-18  100.000000E-18  100.000000E-18  100.000000E-18 
+          BF  100             220             220             100            
+          NF    1               1               1               1            
+         VAF  200             130             130             200            
+          BR    1               1               1               1            
+          NR    1               1               1               1            
+         ISS    0               0               0               0            
+          RE    0               0               0               0            
+          RC    4               0               0               4            
+         CJE    0               0               0               0            
+         VJE     .75             .75             .75             .75         
+         CJC    0               0               0               0            
+         VJC     .75             .75             .75             .75         
+         MJC     .33             .33             .33             .33         
+        XCJC    1               1               1               1            
+         CJS    0               0               0               0            
+         VJS     .75             .75             .75             .75         
+          KF    0              25.000000E-15   25.000000E-15    0            
+          AF    1               1               1               1            
+          CN    2.42            2.42            2.2             2.2          
+           D     .87             .87             .52             .52         
+
+
+               X_U1.NOUT       X_U3.NIX        X_U3.PIX        X_U3.POUT       
+               NPN             NPN             PNP             PNP             
+       LEVEL    1               1               1               1            
+          IS  100.000000E-18  100.000000E-18  100.000000E-18  100.000000E-18 
+          BF  100             220             220             100            
+          NF    1               1               1               1            
+         VAF  200             130             130             200            
+          BR    1               1               1               1            
+          NR    1               1               1               1            
+         ISS    0               0               0               0            
+          RE    0               0               0               0            
+          RC    4               0               0               4            
+         CJE    0               0               0               0            
+         VJE     .75             .75             .75             .75         
+         CJC    0               0               0               0            
+         VJC     .75             .75             .75             .75         
+         MJC     .33             .33             .33             .33         
+        XCJC    1               1               1               1            
+         CJS    0               0               0               0            
+         VJS     .75             .75             .75             .75         
+          KF    0              25.000000E-15   25.000000E-15    0            
+          AF    1               1               1               1            
+          CN    2.42            2.42            2.2             2.2          
+           D     .87             .87             .52             .52         
+
+
+               X_U3.NOUT       
+               NPN             
+       LEVEL    1            
+          IS  100.000000E-18 
+          BF  100            
+          NF    1            
+         VAF  200            
+          BR    1            
+          NR    1            
+         ISS    0            
+          RE    0            
+          RC    4            
+         CJE    0            
+         VJE     .75         
+         CJC    0            
+         VJC     .75         
+         MJC     .33         
+        XCJC    1            
+         CJS    0            
+         VJS     .75         
+          KF    0            
+          AF    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 06/02/24 12:25:20 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-dcsweephum"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-pspicefil
+
+
+ ****     Resistor MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               R_R4            R_R6            R_R1            R_R2            
+           R    1               1               1               1            
+
+
+               R_R3            R_R5            R_R7            R_Rref          
+           R    1               1               1               1            
+
+
+
+          JOB CONCLUDED
+
+**** 06/02/24 12:25:20 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-dcsweephum"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-pspicefil
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .22
+

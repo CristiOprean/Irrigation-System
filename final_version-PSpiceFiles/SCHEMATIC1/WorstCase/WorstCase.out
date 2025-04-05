@@ -1,0 +1,585 @@
+
+**** 06/02/24 13:16:49 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-WorstCase"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-PSpiceFile
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "WorstCase.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of D:\FACULTA\ANU II\Sem 2\CAD\cdssetup\OrCAD_PSpice\23.1.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.DC LIN PARAM r 380k 120k -1k 
+.MC 100 DC V([VOUT3]) YMAX OUTPUT ALL SEED=10 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source FINAL_VERSION
+V_V1         VCC 0 10V
+R_R4         VOUT1 N00531 R_R4 1k TC=0,0 
+.model        R_R4 RES R=1 DEV=1% TC1=0 TC2=0
+X_U2         N00621 N00531 VCC 0 VOUT2 AD8614/AD
+R_R6         N07424 N00621 R_R6 0.75k TC=0,0 
+.model        R_R6 RES R=1 DEV=1% TC1=0 TC2=0
+X_U1         N05879 N05749 VCC 0 VOUT1 AD8614/AD
+R_Rsensor         N05749 VOUT1  {r} TC=0,0 
+R_R1         VCC N05749 R_R1 730k TC=0,0 
+.model        R_R1 RES R=1 DEV=1% TC1=0 TC2=0
+R_R2         VCC N05879 R_R2 730k TC=0,0 
+.model        R_R2 RES R=1 DEV=1% TC1=0 TC2=0
+R_R3         0 N05879 R_R3 730k TC=0,0 
+.model        R_R3 RES R=1 DEV=1% TC1=0 TC2=0
+R_R5         VOUT2 N00531 R_R5 3.3k TC=0,0 
+.model        R_R5 RES R=1 DEV=1% TC1=0 TC2=0
+R_R7         N07424 VCC R_R7 6.34k TC=0,0 
+.model        R_R7 RES R=1 DEV=1% TC1=0 TC2=0
+R_Rref         0 N07424 R_Rref 3.65k TC=0,0 
+.model        R_Rref RES R=1 DEV=1% TC1=0 TC2=0
+R_R8         VOUT2 N09831 R_R8 1.5k TC=0,0 
+.model        R_R8 RES R=1 DEV=1% TC1=0 TC2=0
+R_R9         N09831 VOUT3 R_R9 10k TC=0,0 
+.model        R_R9 RES R=1 DEV=1% TC1=0 TC2=0
+X_U3         N09831 N09890 VCC 0 VOUT3 AD8614/AD
+D_D1         N13621 0 LO_3336-TYP 
+R_Rled         N13621 VOUT3 R_Rled 400 TC=0,0 
+.model        R_Rled RES R=1 DEV=1% TC1=0 TC2=0
+R_R10         VCC N09890 R_R10 6k TC=0,0 
+.model        R_R10 RES R=1 DEV=1% TC1=0 TC2=0
+R_Rref2         N09890 0 R_Rref2 4k TC=0,0 
+.model        R_Rref2 RES R=1 DEV=1% TC1=0 TC2=0
+R_R11         0 N14030 R_R11 400 TC=0,0 
+.model        R_R11 RES R=1 DEV=1% TC1=0 TC2=0
+Q_Q1         VCC VOUT3 N14030 Q2N2222A/ZTX 
+.PARAM  x=0 sensor={-260k*abs(x)+380k} r=380k humidity={(380k-r)*45/260k+5}
+
+**** RESUMING WorstCase.cir ****
+.END
+
+**** 06/02/24 13:16:49 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-WorstCase"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-PSpiceFile
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               LO_3336-TYP     X_U2.DX         X_U1.DX         X_U3.DX         
+          IS  980.130000E-24  100.000000E-18  100.000000E-18  100.000000E-18 
+           N    1.6749                                                       
+         IKF    7.140200E-03                                                 
+          RS    1.6217          5               5               5            
+
+
+**** 06/02/24 13:16:49 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-WorstCase"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-PSpiceFile
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               Q2N2222A/ZTX    X_U2.NIX        X_U2.PIX        X_U2.POUT       
+               NPN             NPN             PNP             PNP             
+       LEVEL    1               1               1               1            
+          IS   30.611000E-15  100.000000E-18  100.000000E-18  100.000000E-18 
+          BF  220             220             220             100            
+          NF    1.00124         1               1               1            
+         VAF  104             130             130             200            
+         IKF     .52                                                         
+         ISE    7.500000E-15                                                 
+          NE    1.41                                                         
+          BR    4               1               1               1            
+          NR    1.005           1               1               1            
+         VAR   28                                                            
+         IKR     .24                                                         
+         ISC   10.652500E-12                                                 
+          NC    1.3728                                                       
+         ISS    0               0               0               0            
+          RB     .13                                                         
+          RE     .22            0               0               0            
+          RC     .12            0               0               4            
+         CJE   27.010000E-12    0               0               0            
+         VJE     .75             .75             .75             .75         
+         CJC    9.120000E-12    0               0               0            
+         VJC     .4089           .75             .75             .75         
+         MJC     .3508           .33             .33             .33         
+        XCJC    1               1               1               1            
+         CJS    0               0               0               0            
+         VJS     .75             .75             .75             .75         
+          TF  325.000000E-12                                                 
+          TR  100.000000E-09                                                 
+          KF    0              25.000000E-15   25.000000E-15    0            
+          AF    1               1               1               1            
+          CN    2.42            2.42            2.2             2.2          
+           D     .87             .87             .52             .52         
+
+
+               X_U2.NOUT       X_U1.NIX        X_U1.PIX        X_U1.POUT       
+               NPN             NPN             PNP             PNP             
+       LEVEL    1               1               1               1            
+          IS  100.000000E-18  100.000000E-18  100.000000E-18  100.000000E-18 
+          BF  100             220             220             100            
+          NF    1               1               1               1            
+         VAF  200             130             130             200            
+          BR    1               1               1               1            
+          NR    1               1               1               1            
+         ISS    0               0               0               0            
+          RE    0               0               0               0            
+          RC    4               0               0               4            
+         CJE    0               0               0               0            
+         VJE     .75             .75             .75             .75         
+         CJC    0               0               0               0            
+         VJC     .75             .75             .75             .75         
+         MJC     .33             .33             .33             .33         
+        XCJC    1               1               1               1            
+         CJS    0               0               0               0            
+         VJS     .75             .75             .75             .75         
+          KF    0              25.000000E-15   25.000000E-15    0            
+          AF    1               1               1               1            
+          CN    2.42            2.42            2.2             2.2          
+           D     .87             .87             .52             .52         
+
+
+               X_U1.NOUT       X_U3.NIX        X_U3.PIX        X_U3.POUT       
+               NPN             NPN             PNP             PNP             
+       LEVEL    1               1               1               1            
+          IS  100.000000E-18  100.000000E-18  100.000000E-18  100.000000E-18 
+          BF  100             220             220             100            
+          NF    1               1               1               1            
+         VAF  200             130             130             200            
+          BR    1               1               1               1            
+          NR    1               1               1               1            
+         ISS    0               0               0               0            
+          RE    0               0               0               0            
+          RC    4               0               0               4            
+         CJE    0               0               0               0            
+         VJE     .75             .75             .75             .75         
+         CJC    0               0               0               0            
+         VJC     .75             .75             .75             .75         
+         MJC     .33             .33             .33             .33         
+        XCJC    1               1               1               1            
+         CJS    0               0               0               0            
+         VJS     .75             .75             .75             .75         
+          KF    0              25.000000E-15   25.000000E-15    0            
+          AF    1               1               1               1            
+          CN    2.42            2.42            2.2             2.2          
+           D     .87             .87             .52             .52         
+
+
+               X_U3.NOUT       
+               NPN             
+       LEVEL    1            
+          IS  100.000000E-18 
+          BF  100            
+          NF    1            
+         VAF  200            
+          BR    1            
+          NR    1            
+         ISS    0            
+          RE    0            
+          RC    4            
+         CJE    0            
+         VJE     .75         
+         CJC    0            
+         VJC     .75         
+         MJC     .33         
+        XCJC    1            
+         CJS    0            
+         VJS     .75         
+          KF    0            
+          AF    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 06/02/24 13:16:49 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-WorstCase"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-PSpiceFile
+
+
+ ****     Resistor MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               R_R4            R_R6            R_R1            R_R2            
+           R    1               1               1               1            
+
+
+               R_R3            R_R5            R_R7            R_Rref          
+           R    1               1               1               1            
+
+
+               R_R8            R_R9            R_Rled          R_R10           
+           R    1               1               1               1            
+
+
+               R_Rref2         R_R11           
+           R    1               1            
+
+
+**** 06/02/24 13:16:49 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-WorstCase"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-PSpiceFile
+
+
+ ****     SORTED DEVIATIONS OF V(VOUT3)    TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO SUMMARY
+
+******************************************************************************
+
+
+
+
+
+Mean Deviation =    -.9963
+Sigma          =    9.6619
+
+ RUN                    MAX DEVIATION FROM NOMINAL
+
+Pass   39               9.8647  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0370E+03% of Nominal)
+
+Pass   50               9.8646  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0370E+03% of Nominal)
+
+Pass   70               9.8646  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0370E+03% of Nominal)
+
+Pass   62               9.8645  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0360E+03% of Nominal)
+
+Pass    3               9.8644  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0350E+03% of Nominal)
+
+Pass   22               9.8643  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0350E+03% of Nominal)
+
+Pass   12               9.8643  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0350E+03% of Nominal)
+
+Pass   83               9.8643  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0350E+03% of Nominal)
+
+Pass   34               9.8643  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0350E+03% of Nominal)
+
+Pass   38               9.8643  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0350E+03% of Nominal)
+
+Pass   72               9.8642  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0350E+03% of Nominal)
+
+Pass   54               9.8642  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0350E+03% of Nominal)
+
+Pass   53               9.8642  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0340E+03% of Nominal)
+
+Pass   26               9.8641  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0340E+03% of Nominal)
+
+Pass   16               9.864   (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0340E+03% of Nominal)
+
+Pass   49               9.864   (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0330E+03% of Nominal)
+
+Pass   84               9.864   (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0330E+03% of Nominal)
+
+Pass   20               9.8639  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0330E+03% of Nominal)
+
+Pass    8               9.8639  (1.02 sigma)  lower  at r =  183.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   59               9.8639  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0330E+03% of Nominal)
+
+Pass    5               9.8639  (1.02 sigma)  lower  at r =  182.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   56               9.8639  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0330E+03% of Nominal)
+
+Pass   47               9.8639  (1.02 sigma)  lower  at r =  179.0000E+03
+                        (    .1959% of Nominal)
+
+Pass    6               9.8639  (1.02 sigma)  lower  at r =  180.0000E+03
+                        (    .1961% of Nominal)
+
+Pass   29               9.8638  (1.02 sigma)  lower  at r =  180.0000E+03
+                        (    .1962% of Nominal)
+
+Pass   45               9.8638  (1.02 sigma)  lower  at r =  179.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   85               9.8638  (1.02 sigma)  lower  at r =  178.0000E+03
+                        (    .1959% of Nominal)
+
+Pass   64               9.8638  (1.02 sigma)  lower  at r =  178.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   24               9.8638  (1.02 sigma)  lower  at r =  177.0000E+03
+                        (    .1959% of Nominal)
+
+Pass   73               9.8638  (1.02 sigma)  lower  at r =  177.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   15               9.8638  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0320E+03% of Nominal)
+
+Pass    4               9.8638  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0320E+03% of Nominal)
+
+Pass   92               9.8638  (1.02 sigma)  lower  at r =  177.0000E+03
+                        (    .1961% of Nominal)
+
+Pass   88               9.8638  (1.02 sigma)  lower  at r =  177.0000E+03
+                        (    .1961% of Nominal)
+
+Pass   66               9.8638  (1.02 sigma)  lower  at r =  177.0000E+03
+                        (    .1961% of Nominal)
+
+Pass   67               9.8638  (1.02 sigma)  lower  at r =  177.0000E+03
+                        (    .1961% of Nominal)
+
+Pass   87               9.8638  (1.02 sigma)  lower  at r =  176.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   17               9.8638  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0320E+03% of Nominal)
+
+Pass   82               9.8638  (1.02 sigma)  lower  at r =  176.0000E+03
+                        (    .1961% of Nominal)
+
+Pass   93               9.8638  (1.02 sigma)  lower  at r =  175.0000E+03
+                        (    .1959% of Nominal)
+
+Pass   27               9.8638  (1.02 sigma)  lower  at r =  175.0000E+03
+                        (    .1959% of Nominal)
+
+Pass   96               9.8638  (1.02 sigma)  lower  at r =  176.0000E+03
+                        (    .1962% of Nominal)
+
+Pass   97               9.8638  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0320E+03% of Nominal)
+
+Pass   32               9.8638  (1.02 sigma)  lower  at r =  175.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   36               9.8638  (1.02 sigma)  lower  at r =  175.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   48               9.8638  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0320E+03% of Nominal)
+
+Pass   91               9.8638  (1.02 sigma)  lower  at r =  175.0000E+03
+                        (    .1961% of Nominal)
+
+Pass   98               9.8637  (1.02 sigma)  lower  at r =  175.0000E+03
+                        (    .1961% of Nominal)
+
+Pass   79               9.8637  (1.02 sigma)  lower  at r =  175.0000E+03
+                        (    .1961% of Nominal)
+
+Pass   52               9.8637  (1.02 sigma)  lower  at r =  175.0000E+03
+                        (    .1962% of Nominal)
+
+Pass   35               9.8637  (1.02 sigma)  lower  at r =  174.0000E+03
+                        (    .1959% of Nominal)
+
+Pass   76               9.8637  (1.02 sigma)  lower  at r =  174.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   74               9.8637  (1.02 sigma)  lower  at r =  174.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   94               9.8637  (1.02 sigma)  lower  at r =  174.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   75               9.8637  (1.02 sigma)  lower  at r =  174.0000E+03
+                        (    .1961% of Nominal)
+
+Pass   58               9.8637  (1.02 sigma)  lower  at r =  174.0000E+03
+                        (    .1961% of Nominal)
+
+Pass   10               9.8637  (1.02 sigma)  lower  at r =  174.0000E+03
+                        (    .1962% of Nominal)
+
+Pass   63               9.8637  (1.02 sigma)  lower  at r =  173.0000E+03
+                        (    .1959% of Nominal)
+
+Pass   14               9.8637  (1.02 sigma)  lower  at r =  173.0000E+03
+                        (    .1959% of Nominal)
+
+Pass   43               9.8637  (1.02 sigma)  lower  at r =  173.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   99               9.8637  (1.02 sigma)  lower  at r =  173.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   31               9.8637  (1.02 sigma)  lower  at r =  173.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   11               9.8637  (1.02 sigma)  lower  at r =  173.0000E+03
+                        (    .196 % of Nominal)
+
+Pass    7               9.8637  (1.02 sigma)  lower  at r =  173.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   41               9.8637  (1.02 sigma)  lower  at r =  173.0000E+03
+                        (    .1961% of Nominal)
+
+Pass   44               9.8637  (1.02 sigma)  lower  at r =  173.0000E+03
+                        (    .1961% of Nominal)
+
+Pass   46               9.8637  (1.02 sigma)  lower  at r =  173.0000E+03
+                        (    .1962% of Nominal)
+
+Pass   69               9.8635  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0310E+03% of Nominal)
+
+Pass   77               9.8635  (1.02 sigma)  lower  at r =  172.0000E+03
+                        (    .1958% of Nominal)
+
+Pass   65               9.8635  (1.02 sigma)  lower  at r =  172.0000E+03
+                        (    .1959% of Nominal)
+
+Pass   55               9.8635  (1.02 sigma)  lower  at r =  172.0000E+03
+                        (    .1959% of Nominal)
+
+Pass   18               9.8635  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0310E+03% of Nominal)
+
+Pass   78               9.8635  (1.02 sigma)  lower  at r =  172.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   90               9.8635  (1.02 sigma)  lower  at r =  172.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   86               9.8635  (1.02 sigma)  lower  at r =  172.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   71               9.8635  (1.02 sigma)  lower  at r =  172.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   57               9.8635  (1.02 sigma)  lower  at r =  172.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   60               9.8635  (1.02 sigma)  lower  at r =  172.0000E+03
+                        (    .196 % of Nominal)
+
+Pass   40               9.8635  (1.02 sigma)  lower  at r =  172.0000E+03
+                        (    .1961% of Nominal)
+
+Pass   30               9.8635  (1.02 sigma)  lower  at r =  172.0000E+03
+                        (    .1961% of Nominal)
+
+Pass   23               9.8635  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0310E+03% of Nominal)
+
+Pass   21               9.8635  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0310E+03% of Nominal)
+
+Pass   28               9.8634  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0310E+03% of Nominal)
+
+Pass   61               9.8634  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0300E+03% of Nominal)
+
+Pass   13               9.8633  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0300E+03% of Nominal)
+
+Pass   89               9.8633  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0300E+03% of Nominal)
+
+Pass   37               9.8633  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0300E+03% of Nominal)
+
+Pass   42               9.8632  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0300E+03% of Nominal)
+
+Pass   95               9.8632  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0290E+03% of Nominal)
+
+Pass  100               9.8632  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0290E+03% of Nominal)
+
+Pass    9               9.8632  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0290E+03% of Nominal)
+
+Pass   51               9.8631  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0290E+03% of Nominal)
+
+Pass   19               9.8631  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0290E+03% of Nominal)
+
+Pass   80               9.863   (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0280E+03% of Nominal)
+
+Pass   81               9.8629  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0280E+03% of Nominal)
+
+Pass    2               9.8629  (1.02 sigma)  higher  at r =  171.0000E+03
+                        (  51.0280E+03% of Nominal)
+
+Pass   25            773.4300E-06  ( .00 sigma)  higher  at r =  172.0000E+03
+                        ( 100.01% of Nominal)
+
+Pass   68            281.3300E-06  ( .00 sigma)  lower  at r =  190.0000E+03
+                        (  99.997% of Nominal)
+
+Pass   33            135.4200E-06  ( .00 sigma)  lower  at r =  377.0000E+03
+                        (  99.999% of Nominal)
+
+
+
+          JOB CONCLUDED
+
+**** 06/02/24 13:16:49 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-WorstCase"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-PSpiceFile
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =       18.94
+

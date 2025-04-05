@@ -1,0 +1,51 @@
+
+**** 05/31/24 18:28:43 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-param"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-PSpiceFiles\SC
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "param.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of D:\FACULTA\ANU II\Sem 2\CAD\cdssetup\OrCAD_PSpice\23.1.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 1000ns 0 
+.STEP LIN PARAM r 120k 380k 260k 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source FINAL_VERSION
+V_V1         VCC 0 10V
+R_Rsensor         VIN VCC  {r} TC=0,0 
+R_Rf         0 VIN  120k TC=0,0 
+R_R1         VIN N00531  1k TC=0,0 
+X_U1         N00531 N00621 VCC 0 N00650 AD8614/AD
+R_R2         N01353 N00621  1k TC=0,0 
+R_R3         N00621 N00650  1k TC=0,0 
+V_V2         VR 0 2.7
+R_R4         N01353 VCC  300 TC=0,0 
+D_D2         0 N01353 1N5223B 
+.PARAM  r=120k
+
+**** RESUMING param.cir ****
+.END
+
+ERROR(ORPSIM-15113): Model 1N5223B used by D_D2 is undefined
+

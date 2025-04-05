@@ -1,0 +1,37 @@
+* source FINAL_VERSION
+V_V1         VCC 0 10V
+R_R4         VOUT1 N00531 R_R4 1k TC=0,0 
+.model        R_R4 RES R=1 DEV=1% TC1=0 TC2=0
+X_U2         N00621 N00531 VCC 0 VOUT2 AD8614/AD
+R_R6         N07424 N00621 R_R6 0.75k TC=0,0 
+.model        R_R6 RES R=1 DEV=1% TC1=0 TC2=0
+X_U1         N05879 N05749 VCC 0 VOUT1 AD8614/AD
+R_Rsensor         N05749 VOUT1  {r} TC=0,0 
+R_R1         VCC N05749 R_R1 730k TC=0,0 
+.model        R_R1 RES R=1 DEV=1% TC1=0 TC2=0
+R_R2         VCC N05879 R_R2 730k TC=0,0 
+.model        R_R2 RES R=1 DEV=1% TC1=0 TC2=0
+R_R3         0 N05879 R_R3 730k TC=0,0 
+.model        R_R3 RES R=1 DEV=1% TC1=0 TC2=0
+R_R5         VOUT2 N00531 R_R5 3.3k TC=0,0 
+.model        R_R5 RES R=1 DEV=1% TC1=0 TC2=0
+R_R7         N07424 VCC R_R7 6.34k TC=0,0 
+.model        R_R7 RES R=1 DEV=1% TC1=0 TC2=0
+R_Rref         0 N07424 R_Rref 3.65k TC=0,0 
+.model        R_Rref RES R=1 DEV=1% TC1=0 TC2=0
+R_R8         VOUT2 N09831 R_R8 1.5k TC=0,0 
+.model        R_R8 RES R=1 DEV=1% TC1=0 TC2=0
+R_R9         N09831 VOUT3 R_R9 10k TC=0,0 
+.model        R_R9 RES R=1 DEV=1% TC1=0 TC2=0
+X_U3         N09831 N09890 VCC 0 VOUT3 AD8614/AD
+D_D1         N13621 0 LO_3336-TYP 
+R_Rled         N13621 VOUT3 R_Rled 400 TC=0,0 
+.model        R_Rled RES R=1 DEV=1% TC1=0 TC2=0
+R_R10         VCC N09890 R_R10 6k TC=0,0 
+.model        R_R10 RES R=1 DEV=1% TC1=0 TC2=0
+R_Rref2         N09890 0 R_Rref2 4k TC=0,0 
+.model        R_Rref2 RES R=1 DEV=1% TC1=0 TC2=0
+R_R11         0 N14030 R_R11 400 TC=0,0 
+.model        R_R11 RES R=1 DEV=1% TC1=0 TC2=0
+Q_Q1         VCC VOUT3 N14030 Q2N2222A/ZTX 
+.PARAM  x=0 sensor={-260k*abs(x)+380k} r=380k humidity={(380k-r)*45/260k+5}

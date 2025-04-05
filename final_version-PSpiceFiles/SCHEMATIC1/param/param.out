@@ -1,0 +1,508 @@
+
+**** 06/01/24 13:50:19 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-param"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-pspicefiles\sc
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "param.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of D:\FACULTA\ANU II\Sem 2\CAD\cdssetup\OrCAD_PSpice\23.1.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 10s 0.1 
+.STEP LIN PARAM r 380k 120k -260k 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source FINAL_VERSION
+V_V1         VCC 0 10V
+R_R4         VOUT1 N00531 R_R4 1k TC=0,0 
+.model        R_R4 RES R=1 DEV=1% TC1=0 TC2=0
+X_U1         N00621 N00531 VCC 0 VOUT2 AD8614/AD
+R_R6         N07424 N00621 R_R6 0.75k TC=0,0 
+.model        R_R6 RES R=1 DEV=1% TC1=0 TC2=0
+V_V2         VR 0 4.42
+X_U2         N05879 N05749 VCC 0 VOUT1 AD8614/AD
+R_Rsensor         N05749 VOUT1  {r} TC=0,0 
+R_R1         VCC N05749 R_R1 730k TC=0,0 
+.model        R_R1 RES R=1 DEV=1% TC1=0 TC2=0
+R_R2         VCC N05879 R_R2 730k TC=0,0 
+.model        R_R2 RES R=1 DEV=1% TC1=0 TC2=0
+R_R3         0 N05879 R_R3 730k TC=0,0 
+.model        R_R3 RES R=1 DEV=1% TC1=0 TC2=0
+R_R5         VOUT2 N00531 R_R5 3.3k TC=0,0 
+.model        R_R5 RES R=1 DEV=1% TC1=0 TC2=0
+R_R7         N07424 VCC R_R7 6.34k TC=0,0 
+.model        R_R7 RES R=1 DEV=1% TC1=0 TC2=0
+R_Rref         0 N07424 R_Rref 3.65k TC=0,0 
+.model        R_Rref RES R=1 DEV=1% TC1=0 TC2=0
+R_R8         N09818 N09831  1.5k TC=0,0 
+R_R9         N09831 VOUT3  10k TC=0,0 
+X_U3         N09831 N09890 VCC 0 VOUT3 AD8614/AD
+D_D1         0 N09890 D1N5229 
+R_R10         N09890 VCC  500 TC=0,0 
+V_V3         N09818 0  
++PULSE 1.86 7.79 0 1s 1s 2 6
+.PARAM  humidity={5+(380k-r)*45/260k} r=380k
+
+**** RESUMING param.cir ****
+.END
+
+**** 06/01/24 13:50:19 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-param"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-pspicefiles\sc
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N5229         X_U1.DX         X_U2.DX         X_U3.DX         
+          IS  880.500000E-18  100.000000E-18  100.000000E-18  100.000000E-18 
+         ISR    1.743000E-09                                                 
+          BV    4.3                                                          
+         IBV     .016748                                                     
+         NBV    1.7936                                                       
+        IBVL    5.038200E-03                                                 
+        NBVL   12.554                                                        
+          RS     .25            5               5               5            
+         CJO  190.000000E-12                                                 
+          VJ     .75                                                         
+           M     .6124                                                       
+        TBV1 -232.560000E-06                                                 
+
+
+**** 06/01/24 13:50:19 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-param"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-pspicefiles\sc
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.NIX        X_U1.PIX        X_U1.POUT       X_U1.NOUT       
+               NPN             PNP             PNP             NPN             
+       LEVEL    1               1               1               1            
+          IS  100.000000E-18  100.000000E-18  100.000000E-18  100.000000E-18 
+          BF  220             220             100             100            
+          NF    1               1               1               1            
+         VAF  130             130             200             200            
+          BR    1               1               1               1            
+          NR    1               1               1               1            
+         ISS    0               0               0               0            
+          RE    0               0               0               0            
+          RC    0               0               4               4            
+         CJE    0               0               0               0            
+         VJE     .75             .75             .75             .75         
+         CJC    0               0               0               0            
+         VJC     .75             .75             .75             .75         
+         MJC     .33             .33             .33             .33         
+        XCJC    1               1               1               1            
+         CJS    0               0               0               0            
+         VJS     .75             .75             .75             .75         
+          KF   25.000000E-15   25.000000E-15    0               0            
+          AF    1               1               1               1            
+          CN    2.42            2.2             2.2             2.42         
+           D     .87             .52             .52             .87         
+
+
+               X_U2.NIX        X_U2.PIX        X_U2.POUT       X_U2.NOUT       
+               NPN             PNP             PNP             NPN             
+       LEVEL    1               1               1               1            
+          IS  100.000000E-18  100.000000E-18  100.000000E-18  100.000000E-18 
+          BF  220             220             100             100            
+          NF    1               1               1               1            
+         VAF  130             130             200             200            
+          BR    1               1               1               1            
+          NR    1               1               1               1            
+         ISS    0               0               0               0            
+          RE    0               0               0               0            
+          RC    0               0               4               4            
+         CJE    0               0               0               0            
+         VJE     .75             .75             .75             .75         
+         CJC    0               0               0               0            
+         VJC     .75             .75             .75             .75         
+         MJC     .33             .33             .33             .33         
+        XCJC    1               1               1               1            
+         CJS    0               0               0               0            
+         VJS     .75             .75             .75             .75         
+          KF   25.000000E-15   25.000000E-15    0               0            
+          AF    1               1               1               1            
+          CN    2.42            2.2             2.2             2.42         
+           D     .87             .52             .52             .87         
+
+
+               X_U3.NIX        X_U3.PIX        X_U3.POUT       X_U3.NOUT       
+               NPN             PNP             PNP             NPN             
+       LEVEL    1               1               1               1            
+          IS  100.000000E-18  100.000000E-18  100.000000E-18  100.000000E-18 
+          BF  220             220             100             100            
+          NF    1               1               1               1            
+         VAF  130             130             200             200            
+          BR    1               1               1               1            
+          NR    1               1               1               1            
+         ISS    0               0               0               0            
+          RE    0               0               0               0            
+          RC    0               0               4               4            
+         CJE    0               0               0               0            
+         VJE     .75             .75             .75             .75         
+         CJC    0               0               0               0            
+         VJC     .75             .75             .75             .75         
+         MJC     .33             .33             .33             .33         
+        XCJC    1               1               1               1            
+         CJS    0               0               0               0            
+         VJS     .75             .75             .75             .75         
+          KF   25.000000E-15   25.000000E-15    0               0            
+          AF    1               1               1               1            
+          CN    2.42            2.2             2.2             2.42         
+           D     .87             .52             .52             .87         
+
+
+**** 06/01/24 13:50:19 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-param"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-pspicefiles\sc
+
+
+ ****     Resistor MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               R_R4            R_R6            R_R1            R_R2            
+           R    1               1               1               1            
+
+
+               R_R3            R_R5            R_R7            R_Rref          
+           R    1               1               1               1            
+
+
+**** 06/01/24 13:50:19 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-param"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-pspicefiles\sc
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM R =  380.0000E+03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   VR)    4.4200  (  VCC)   10.0000  (VOUT1)    2.3896  (VOUT2)    7.8295      
+
+(VOUT3)     .0188  (N00531)    3.6547 (N00621)    3.6537 (N05749)    4.9974     
+
+(N05879)    4.9964 (N07424)    3.6537 (N09818)    1.8600 (N09831)    1.6217     
+
+(N09890)    4.2626 (X_U1.3)    4.3799 (X_U1.4)    4.3799 (X_U1.5)     .3563     
+
+(X_U1.6)     .3564 (X_U1.7)    3.6547 (X_U1.8)    9.3000 (X_U1.9)    9.3000     
+
+(X_U2.3)    5.7222 (X_U2.4)    5.7222 (X_U2.5)     .3536 (X_U2.6)     .3536     
+
+(X_U2.7)    4.9974 (X_U2.8)    9.3000 (X_U2.9)    9.3000 (X_U3.3)    2.3666     
+
+(X_U3.4)    2.5608 (X_U3.5)     .7205 (X_U3.6) 15.96E-09 (X_U3.7)    1.6227     
+
+(X_U3.8)    9.3000 (X_U3.9)    9.3000 (X_U1.10)    4.4760                       
+
+(X_U1.11)    9.6491                   (X_U1.12)    9.6492                       
+
+(X_U1.13)    2.9304                   (X_U1.14)    2.9304                       
+
+(X_U1.15)    2.8358                   (X_U1.16)     .7000                       
+
+(X_U1.17)     .7000                   (X_U1.30)    4.9264                       
+
+(X_U1.40)    9.2135                   (X_U1.41)    9.2198                       
+
+(X_U1.42)     .6393                   (X_U1.43)     .6392                       
+
+(X_U1.46)    9.7198                   (X_U1.47)     .5000                       
+
+(X_U1.51)    0.0000                   (X_U1.70)    0.0000                       
+
+(X_U1.71)    0.0000                   (X_U1.72)    5.0000                       
+
+(X_U1.73)    5.0000                   (X_U1.80)    5.0000                       
+
+(X_U1.81)    5.0000                   (X_U1.97)   10.0000                       
+
+(X_U1.98)    5.0000                   (X_U2.10)    5.8175                       
+
+(X_U2.11)    9.6464                   (X_U2.12)    9.6464                       
+
+(X_U2.13)    4.2726                   (X_U2.14)    4.2727                       
+
+(X_U2.15)    4.1773                   (X_U2.16)     .7000                       
+
+(X_U2.17)     .7000                   (X_U2.30)    5.0738                       
+
+(X_U2.40)    9.3609                   (X_U2.41)    9.3609                       
+
+(X_U2.42)     .7867                   (X_U2.43)     .7803                       
+
+(X_U2.46)    9.8609                   (X_U2.47)     .5000                       
+
+(X_U2.51)    0.0000                   (X_U2.70)    0.0000                       
+
+(X_U2.71)    0.0000                   (X_U2.72)    5.0000                       
+
+(X_U2.73)    5.0000                   (X_U2.80)    5.0000                       
+
+(X_U2.81)    5.0000                   (X_U2.97)   10.0000                       
+
+(X_U2.98)    5.0000                   (X_U3.10)    2.5608                       
+
+(X_U3.11)   10.0000                   (X_U3.12)    9.2963                       
+
+(X_U3.13)    3.3304                   (X_U3.14)    3.5201                       
+
+(X_U3.15)    3.3304                   (X_U3.16)     .7000                       
+
+(X_U3.17)     .7000                   (X_U3.30)   10.7550                       
+
+(X_U3.40)   15.0420                   (X_U3.41)   10.3790                       
+
+(X_U3.42)    6.4682                   (X_U3.43)     .8544                       
+
+(X_U3.46)   10.8790                   (X_U3.47)     .5000                       
+
+(X_U3.51)    0.0000                   (X_U3.70)    0.0000                       
+
+(X_U3.71)    0.0000                   (X_U3.72)    5.0000                       
+
+(X_U3.73)    5.0000                   (X_U3.80)    5.0000                       
+
+(X_U3.81)    5.0000                   (X_U3.97)   10.0000                       
+
+(X_U3.98)    5.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -1.588E-02
+    V_V2         0.000E+00
+    V_V3        -1.589E-04
+    X_U1.V1      4.920E-12
+    X_U1.V2      4.920E-12
+    X_U1.V3      2.230E-12
+    X_U1.V4      2.230E-12
+    X_U1.VN1     0.000E+00
+    X_U1.V5      2.803E-13
+    X_U1.V6      1.393E-13
+    X_U2.V1      3.578E-12
+    X_U2.V2      3.578E-12
+    X_U2.V3      3.573E-12
+    X_U2.V4      3.573E-12
+    X_U2.VN1     0.000E+00
+    X_U2.V5      1.394E-13
+    X_U2.V6      2.804E-13
+    X_U3.V1      6.934E-12
+    X_U3.V2      6.739E-12
+    X_U3.V3      2.630E-12
+    X_U3.V4      2.820E-12
+    X_U3.VN1     0.000E+00
+    X_U3.V5     -9.328E-03
+    X_U3.V6      3.545E-13
+
+    TOTAL POWER DISSIPATION   1.64E-01  WATTS
+
+
+**** 06/01/24 13:50:19 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-param"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-pspicefiles\sc
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM R =  120.0000E+03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   VR)    4.4200  (  VCC)   10.0000  (VOUT1)    4.1738  (VOUT2)    1.9417      
+
+(VOUT3)     .0188  (N00531)    3.6547 (N00621)    3.6537 (N05749)    4.9973     
+
+(N05879)    4.9963 (N07424)    3.6537 (N09818)    1.8600 (N09831)    1.6217     
+
+(N09890)    4.2626 (X_U1.3)    4.3799 (X_U1.4)    4.3799 (X_U1.5)     .3564     
+
+(X_U1.6)     .3563 (X_U1.7)    3.6547 (X_U1.8)    9.3000 (X_U1.9)    9.3000     
+
+(X_U2.3)    5.7221 (X_U2.4)    5.7221 (X_U2.5)     .3536 (X_U2.6)     .3536     
+
+(X_U2.7)    4.9973 (X_U2.8)    9.3000 (X_U2.9)    9.3000 (X_U3.3)    2.3666     
+
+(X_U3.4)    2.5608 (X_U3.5)     .7205 (X_U3.6) 15.96E-09 (X_U3.7)    1.6227     
+
+(X_U3.8)    9.3000 (X_U3.9)    9.3000 (X_U1.10)    4.4760                       
+
+(X_U1.11)    9.6492                   (X_U1.12)    9.6491                       
+
+(X_U1.13)    2.9304                   (X_U1.14)    2.9304                       
+
+(X_U1.15)    2.8358                   (X_U1.16)     .7000                       
+
+(X_U1.17)     .7000                   (X_U1.30)    5.0476                       
+
+(X_U1.40)    9.3347                   (X_U1.41)    9.3348                       
+
+(X_U1.42)     .7605                   (X_U1.43)     .7579                       
+
+(X_U1.46)    9.8348                   (X_U1.47)     .5000                       
+
+(X_U1.51)    0.0000                   (X_U1.70)    0.0000                       
+
+(X_U1.71)    0.0000                   (X_U1.72)    5.0000                       
+
+(X_U1.73)    5.0000                   (X_U1.80)    5.0000                       
+
+(X_U1.81)    5.0000                   (X_U1.97)   10.0000                       
+
+(X_U1.98)    5.0000                   (X_U2.10)    5.8174                       
+
+(X_U2.11)    9.6464                   (X_U2.12)    9.6464                       
+
+(X_U2.13)    4.2726                   (X_U2.14)    4.2726                       
+
+(X_U2.15)    4.1773                   (X_U2.16)     .7000                       
+
+(X_U2.17)     .7000                   (X_U2.30)    4.9533                       
+
+(X_U2.40)    9.2404                   (X_U2.41)    9.2430                       
+
+(X_U2.42)     .6662                   (X_U2.43)     .6661                       
+
+(X_U2.46)    9.7430                   (X_U2.47)     .5000                       
+
+(X_U2.51)    0.0000                   (X_U2.70)    0.0000                       
+
+(X_U2.71)    0.0000                   (X_U2.72)    5.0000                       
+
+(X_U2.73)    5.0000                   (X_U2.80)    5.0000                       
+
+(X_U2.81)    5.0000                   (X_U2.97)   10.0000                       
+
+(X_U2.98)    5.0000                   (X_U3.10)    2.5608                       
+
+(X_U3.11)   10.0000                   (X_U3.12)    9.2963                       
+
+(X_U3.13)    3.3304                   (X_U3.14)    3.5201                       
+
+(X_U3.15)    3.3304                   (X_U3.16)     .7000                       
+
+(X_U3.17)     .7000                   (X_U3.30)   10.7550                       
+
+(X_U3.40)   15.0420                   (X_U3.41)   10.3790                       
+
+(X_U3.42)    6.4682                   (X_U3.43)     .8544                       
+
+(X_U3.46)   10.8790                   (X_U3.47)     .5000                       
+
+(X_U3.51)    0.0000                   (X_U3.70)    0.0000                       
+
+(X_U3.71)    0.0000                   (X_U3.72)    5.0000                       
+
+(X_U3.73)    5.0000                   (X_U3.80)    5.0000                       
+
+(X_U3.81)    5.0000                   (X_U3.97)   10.0000                       
+
+(X_U3.98)    5.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -1.515E-02
+    V_V2         0.000E+00
+    V_V3        -1.589E-04
+    X_U1.V1      4.920E-12
+    X_U1.V2      4.920E-12
+    X_U1.V3      2.231E-12
+    X_U1.V4      2.231E-12
+    X_U1.VN1     0.000E+00
+    X_U1.V5      1.653E-13
+    X_U1.V6      2.579E-13
+    X_U2.V1      3.578E-12
+    X_U2.V2      3.578E-12
+    X_U2.V3      3.573E-12
+    X_U2.V4      3.573E-12
+    X_U2.VN1     0.000E+00
+    X_U2.V5      2.574E-13
+    X_U2.V6      1.662E-13
+    X_U3.V1      6.934E-12
+    X_U3.V2      6.739E-12
+    X_U3.V3      2.630E-12
+    X_U3.V4      2.820E-12
+    X_U3.VN1     0.000E+00
+    X_U3.V5     -9.328E-03
+    X_U3.V6      3.545E-13
+
+    TOTAL POWER DISSIPATION   1.56E-01  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 06/01/24 13:50:19 ***** PSpice 23.1.0 (17 April 2024) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-param"  [ d:\faculta\anu ii\sem 2\cad\cdssetup\workspace\projects\final_version\final_version-pspicefiles\sc
+
+
+ ****     JOB STATISTICS SUMMARY
+
+ ****     CURRENT STEP                     PARAM R =  120.0000E+03
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .19
+
